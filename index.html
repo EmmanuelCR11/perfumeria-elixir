@@ -28,7 +28,7 @@
   </noscript>
   <!-- End Meta Pixel Code -->
 
- <!-- TikTok Pixel Code Start -->
+  <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -42,18 +42,16 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </script>
 <!-- TikTok Pixel Code End -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=DM+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --lav-bg:     #d8dcf4;
-      --lav-mid:    #b8bde8;
-      --lav-dark:   #8e95d4;
-      --lav-deep:   #6b72be;
-      --red:        #e02b3f;
+      --red:        #c8102e;
+      --red-bright: #e01330;
+      --bg-dark:    #17181c;
+      --card-black: #0d0d10;
       --white:      #ffffff;
-      --text-dark:  #2e2e50;
-      --text-mid:   #6b6b8f;
+      --text-mid:   #d8d8dc;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,443 +59,184 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--lav-bg);
-    }
-
-    /* ── IFRAME FONDO ── */
-    #mainIframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-      display: block;
-      position: fixed;
-      z-index: 1;
-    }
-
-    /* ── OVERLAY BLUR ── */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(190, 195, 235, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* ── SILUETAS DE FONDO ── */
-    .silhouettes {
-      position: fixed;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    /* Good Girl - botella curvada izquierda */
-    .sil-goodgirl {
-      position: absolute;
-      bottom: -10px;
-      left: -18px;
-      width: 120px;
-      opacity: 0.18;
-      animation: silFloat 5s ease-in-out infinite alternate;
-    }
-    /* Jadore - botella fina centro-izquierda */
-    .sil-jadore {
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-140px);
-      width: 80px;
-      opacity: 0.14;
-      animation: silFloat 6s ease-in-out infinite alternate-reverse;
-    }
-    /* Coco Chanel - botella rectangular derecha */
-    .sil-coco {
-      position: absolute;
-      bottom: -10px;
-      right: -15px;
-      width: 110px;
-      opacity: 0.18;
-      animation: silFloat 4.5s ease-in-out infinite alternate;
-    }
-    /* Gafas - arriba derecha */
-    .sil-gafas {
-      position: absolute;
-      top: 12%;
-      right: 4%;
-      width: 100px;
-      opacity: 0.13;
-      animation: silFloatH 7s ease-in-out infinite alternate;
-      transform: rotate(-12deg);
-    }
-    /* Segundo frasco pequeño - arriba izquierda */
-    .sil-mini {
-      position: absolute;
-      top: 8%;
-      left: 5%;
-      width: 55px;
-      opacity: 0.12;
-      animation: silFloat 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes silFloat {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-14px); }
-    }
-    @keyframes silFloatH {
-      from { transform: rotate(-12deg) translateY(0); }
-      to   { transform: rotate(-8deg) translateY(-10px); }
-    }
-
-    /* ── DESTELLOS ── */
-    .sparkle {
-      position: fixed;
-      z-index: 4;
-      pointer-events: none;
-      color: var(--lav-deep);
-      animation: sparklePop 2.2s ease-in-out infinite alternate;
-      opacity: 0.55;
-    }
-    .sp1 { top: 18%; right: 10%; font-size: 20px; animation-delay: 0s; }
-    .sp2 { top: 60%; left:  6%; font-size: 14px; animation-delay: .8s; }
-    .sp3 { bottom: 22%; right: 14%; font-size: 17px; animation-delay: 1.4s; }
-    .sp4 { top: 35%; left: 10%; font-size: 11px; animation-delay: .4s; }
-    @keyframes sparklePop {
-      from { transform: scale(1) rotate(0deg);   opacity: .4; }
-      to   { transform: scale(1.5) rotate(25deg); opacity: .9; }
+      background: radial-gradient(ellipse at 50% 30%, #3a3b42 0%, #1c1d21 55%, #131316 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* ── CARD WRAP ── */
     .cardWrap {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      width: min(390px, 90vw);
+      position: relative;
+      width: min(400px, 92vw);
+      max-height: 94vh;
     }
 
-    /* borde degradado */
     .cardBorder {
-      background: linear-gradient(135deg, var(--lav-mid), var(--lav-deep), #c9a0dc);
-      border-radius: 34px;
+      background: var(--red);
+      border-radius: 26px;
       padding: 3px;
-      box-shadow: 0 28px 70px rgba(100,110,200,.28);
+      box-shadow: 0 0 0 1px rgba(224,19,48,.35),
+                  0 0 40px 6px rgba(224,19,48,.55),
+                  0 20px 60px rgba(0,0,0,.55);
     }
 
     .promo {
-      background: rgba(255,255,255,0.96);
-      border-radius: 32px;
-      padding: 26px 22px 22px;
-      text-align: center;
+      background: var(--card-black);
+      border-radius: 23px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── VIDEO ── */
+    .videoBox {
       position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #000;
       overflow: hidden;
     }
 
-    /* brillo interior */
-    .promo::before {
-      content: '';
+    .videoBox video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .soundBtn {
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 50%;
-      background: radial-gradient(ellipse at 60% 0%, rgba(200,205,245,.35) 0%, transparent 70%);
+      left: 50%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20,20,20,.72);
+      color: var(--white);
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 6;
+    }
+    .soundBtn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .soundBtn.hidden {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.9);
       pointer-events: none;
     }
 
-    /* ── ETIQUETA PERFUMERÍA ── */
-    .perfLabel {
-      display: inline-block;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--lav-deep);
-      margin-bottom: 10px;
-      opacity: .85;
+    /* ── TEXTO ── */
+    .textBlock {
+      padding: 20px 20px 8px;
+      text-align: center;
     }
 
-    /* ── HOT DAYS ── */
-    .hotDaysRow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-    .hotBadge {
-      background: var(--red);
-      color: var(--white);
+    .offerTitle {
       font-weight: 900;
-      font-size: 19px;
-      letter-spacing: 1.5px;
-      padding: 4px 13px;
-      border-radius: 8px 0 0 8px;
-      line-height: 1.3;
-      text-transform: uppercase;
-    }
-    .daysBadge {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 34px;
-      color: var(--text-dark);
-      padding-left: 8px;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-
-    /* ── NOMBRES PERFUMES ── */
-    .perfNames {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 17px;
-      color: var(--text-dark);
-      font-weight: 700;
-      margin-bottom: 14px;
-      line-height: 1.5;
+      font-size: 21px;
       letter-spacing: .3px;
-    }
-    .perfNames span {
-      color: var(--lav-deep);
-      font-weight: 700;
-    }
-    .perfNames .plus {
-      color: var(--red);
-      font-style: normal;
-      font-weight: 900;
-    }
-    .obsequio {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--lav-deep), #c9a0dc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-
-    /* ── PILL DESCUENTO ── */
-    .discountPill {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      background: var(--red);
-      border-radius: 999px;
-      padding: 8px 38px 10px;
-      margin-bottom: 14px;
-      animation: pillPulse 2s ease-in-out infinite;
-    }
-    .discountPill .hasta {
-      font-size: 12px;
-      font-weight: 700;
-      color: rgba(255,255,255,.8);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1;
-    }
-    .discountPill .pct {
-      font-weight: 900;
-      font-size: 42px;
       color: var(--white);
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-    @keyframes pillPulse {
-      0%,100% { transform: scale(1);    box-shadow: 0 8px 24px rgba(224,43,63,.28); }
-      50%      { transform: scale(1.03); box-shadow: 0 12px 32px rgba(224,43,63,.44); }
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    /* ── CHIPS ── */
-    .chipRow {
-      display: flex;
-      gap: 7px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 6px 13px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 12.5px;
-      background: #eef0fb;
-      color: var(--text-dark);
-      border: 1.5px solid var(--lav-mid);
+    .offerSub {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--text-mid);
     }
 
     /* ── BOTÓN ── */
-    @keyframes pulseBtn {
-      0%,100% { transform: scale(1);    box-shadow: 0 10px 28px rgba(224,43,63,.26); }
-      50%      { transform: scale(1.03); box-shadow: 0 14px 36px rgba(224,43,63,.44); }
+    .btnWrap {
+      padding: 18px 20px 22px;
     }
+
+    @keyframes pulseBtn {
+      0%,100% { transform: scale(1);    box-shadow: 0 8px 22px rgba(200,16,46,.4); }
+      50%      { transform: scale(1.025); box-shadow: 0 12px 30px rgba(200,16,46,.6); }
+    }
+
     .btn {
       border: none;
       width: 100%;
-      height: 54px;
-      border-radius: 999px;
+      height: 58px;
+      border-radius: 12px;
       cursor: pointer;
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       font-weight: 900;
       color: var(--white);
-      background: var(--red);
+      background: linear-gradient(180deg, var(--red-bright), var(--red));
       letter-spacing: .5px;
-      animation: pulseBtn 1.4s ease-in-out infinite;
+      text-transform: uppercase;
+      animation: pulseBtn 1.5s ease-in-out infinite;
       transition: filter .15s ease;
       user-select: none;
     }
     .btn:active { transform: scale(.98); }
     .btn:hover  { filter: brightness(1.08); }
-
-    .finePrint {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-mid);
-      font-weight: 700;
-    }
   </style>
 </head>
 
 <body>
-
-  <iframe
-    id="mainIframe"
-    src="https://perfumeria-elixiir-2.myshopify.com/products/good-girl-jadore-coco-mademoisalle-lentes-obsequio"
-    scrolling="yes"
-    title="Oferta">
-  </iframe>
-
-  <div class="overlay"></div>
-
-  <!-- ══ SILUETAS SVG DE FONDO ══ -->
-  <div class="silhouettes">
-
-    <!-- Good Girl – frasco con curvas femeninas, tapa redondeada -->
-    <svg class="sil-goodgirl" viewBox="0 0 90 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- tapa -->
-      <ellipse cx="45" cy="22" rx="18" ry="10" fill="#6b72be"/>
-      <rect x="38" y="12" width="14" height="18" rx="4" fill="#6b72be"/>
-      <!-- cuello -->
-      <rect x="40" y="28" width="10" height="16" rx="3" fill="#6b72be"/>
-      <!-- cuerpo curvo -->
-      <path d="M20 44 Q10 80 12 130 Q14 170 45 175 Q76 170 78 130 Q80 80 70 44 Z" fill="#6b72be"/>
-      <!-- destello interior -->
-      <path d="M30 60 Q28 100 30 140" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-
-    <!-- J'adore – frasco alto y fino, tapa dorada -->
-    <svg class="sil-jadore" viewBox="0 0 60 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- tapa redonda -->
-      <ellipse cx="30" cy="16" rx="12" ry="12" fill="#8e95d4"/>
-      <!-- cuello largo -->
-      <rect x="26" y="26" width="8" height="30" rx="3" fill="#8e95d4"/>
-      <!-- cuerpo ovalado -->
-      <ellipse cx="30" cy="130" rx="22" ry="52" fill="#8e95d4"/>
-      <!-- base -->
-      <ellipse cx="30" cy="180" rx="22" ry="6" fill="#6b72be"/>
-      <!-- reflejo -->
-      <path d="M20 85 Q18 130 20 168" stroke="rgba(255,255,255,0.18)" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-
-    <!-- Coco Chanel N°5 – frasco rectangular clásico -->
-    <svg class="sil-coco" viewBox="0 0 80 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- tapa rectangular -->
-      <rect x="22" y="4" width="36" height="22" rx="4" fill="#6b72be"/>
-      <!-- cuello -->
-      <rect x="30" y="24" width="20" height="14" rx="3" fill="#7c83cc"/>
-      <!-- cuerpo rectangular limpio -->
-      <rect x="8" y="36" width="64" height="130" rx="10" fill="#8e95d4"/>
-      <!-- base -->
-      <rect x="8" y="162" width="64" height="10" rx="5" fill="#6b72be"/>
-      <!-- reflejo vertical -->
-      <rect x="20" y="46" width="6" height="110" rx="3" fill="rgba(255,255,255,0.15)"/>
-      <!-- etiqueta simulada -->
-      <rect x="18" y="80" width="44" height="46" rx="4" fill="rgba(255,255,255,0.1)"/>
-    </svg>
-
-    <!-- Gafas de sol -->
-    <svg class="sil-gafas" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- varilla izquierda -->
-      <rect x="0" y="28" width="30" height="7" rx="3.5" fill="#8e95d4"/>
-      <!-- aro izquierdo -->
-      <rect x="28" y="10" width="62" height="46" rx="20" fill="#8e95d4"/>
-      <!-- cristal izq interior -->
-      <rect x="34" y="16" width="50" height="34" rx="16" fill="#b8bde8" opacity=".5"/>
-      <!-- puente nasal -->
-      <path d="M90 33 Q100 26 110 33" stroke="#8e95d4" stroke-width="6" stroke-linecap="round" fill="none"/>
-      <!-- aro derecho -->
-      <rect x="110" y="10" width="62" height="46" rx="20" fill="#8e95d4"/>
-      <!-- cristal der interior -->
-      <rect x="116" y="16" width="50" height="34" rx="16" fill="#b8bde8" opacity=".5"/>
-      <!-- varilla derecha -->
-      <rect x="170" y="28" width="30" height="7" rx="3.5" fill="#8e95d4"/>
-      <!-- reflejo lente izq -->
-      <path d="M40 22 Q50 18 58 22" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <!-- reflejo lente der -->
-      <path d="M122 22 Q132 18 140 22" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round" fill="none"/>
-    </svg>
-
-    <!-- Mini frasco extra -->
-    <svg class="sil-mini" viewBox="0 0 50 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="25" cy="12" rx="10" ry="8" fill="#b8bde8"/>
-      <rect x="20" y="18" width="10" height="12" rx="3" fill="#b8bde8"/>
-      <ellipse cx="25" cy="80" rx="18" ry="38" fill="#b8bde8"/>
-    </svg>
-
-  </div>
-
-  <!-- Destellos -->
-  <span class="sparkle sp1">✦</span>
-  <span class="sparkle sp2">✦</span>
-  <span class="sparkle sp3">✦</span>
-  <span class="sparkle sp4">✦</span>
 
   <!-- ══ CARD ══ -->
   <div class="cardWrap" role="dialog" aria-modal="true" aria-label="Oferta especial">
     <div class="cardBorder">
       <div class="promo">
 
-        <div class="perfLabel">✦ Perfumería de Lujo ✦</div>
+        <div class="videoBox">
+          <video
+            id="offerVideo"
+            src="https://cdn.shopify.com/videos/c/o/v/b1ca4261a39f467d90a2d628ba671a1b.mov"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+          ></video>
 
-        <div class="hotDaysRow">
-          <span class="hotBadge">HOT</span>
-          <span class="daysBadge">DAYS</span>
+          <button id="soundBtn" class="soundBtn" type="button" aria-label="Activar sonido">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor"/>
+              <path d="M15.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M17.8 6.2a8.5 8.5 0 0 1 0 11.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+            </svg>
+            Tocar para sonido
+          </button>
         </div>
 
-        <div class="perfNames">
-          <span>Good Girl</span> <em class="plus">+</em>
-          <span>J'adore</span> <em class="plus">+</em><br>
-          <span>Coco Mademoiselle</span> <em class="plus">+</em>
-          <span class="obsequio">Obsequio 🎁</span>
+        <div class="textBlock">
+          <div class="offerTitle">Oferta sólo por hoy</div>
+          <div class="offerSub">Paga 1 lleva 3!!! Las mejores promos y fragancias las encuentras acá</div>
         </div>
 
-        <div class="discountPill">
-          <span class="hasta">Hasta</span>
-          <span class="pct">40% OFF</span>
+        <div class="btnWrap">
+          <button class="btn" type="button" onclick="redirectToIframeUrl()">
+            Ver Oferta Ahora
+          </button>
         </div>
-
-        <div class="chipRow">
-          <span class="chip">🏠 Pago en casa</span>
-          <span class="chip">⏳ Unidades limitadas</span>
-          <span class="chip">🇨🇴 Solo Colombia</span>
-        </div>
-
-        <button class="btn" type="button" onclick="redirectToIframeUrl()">
-          Ver Oferta 💄
-        </button>
-
-        <div class="finePrint">Oferta válida mientras duren existencias</div>
 
       </div>
     </div>
   </div>
 
   <script>
+    // URL de destino: se guarda como variable, NO se carga la página real
+    // en segundo plano (evita duplicar el PageView del pixel de Meta/TikTok
+    // y evita el patrón que reduce la entrega de tráfico en las campañas).
+    const OFFER_URL = "https://perfumeria-elixiir-2.myshopify.com/products/good-girl-jadore-coco-mademoisalle-lentes-obsequio";
+
     async function getUserLocation() {
       try {
         const r = await fetch('https://ipapi.co/json/');
@@ -509,10 +248,25 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     document.addEventListener('DOMContentLoaded', getUserLocation);
 
     function redirectToIframeUrl() {
-      const iframe = document.getElementById('mainIframe');
-      window.location.href = iframe.src;
+      window.location.href = OFFER_URL;
     }
+
+    // Toggle de sonido del video: primer tap activa audio y oculta el botón
+    (function () {
+      const video = document.getElementById('offerVideo');
+      const soundBtn = document.getElementById('soundBtn');
+
+      function unmute() {
+        video.muted = false;
+        video.play().catch(() => {});
+        soundBtn.classList.add('hidden');
+      }
+
+      soundBtn.addEventListener('click', unmute);
+      video.addEventListener('click', unmute);
+    })();
   </script>
 
 </body>
 </html>
+    
